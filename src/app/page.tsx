@@ -3,6 +3,7 @@ import { ArrowUpRight, GithubIcon, MailIcon } from "@/components/icons";
 import { CopyEmail } from "@/components/copy-email";
 import { SiteHeader } from "@/components/site-header";
 import { portfolio } from "@/data/portfolio";
+import { siteUrl } from "@/lib/site-url";
 
 export default function Home() {
   const personJsonLd = {
@@ -11,7 +12,7 @@ export default function Home() {
     name: portfolio.name,
     jobTitle: portfolio.role,
     email: `mailto:${portfolio.email}`,
-    url: "https://june-rhomel-portfolio-a0305.web.app",
+    url: siteUrl,
     sameAs: portfolio.socials.map((social) => social.href),
   };
   return (

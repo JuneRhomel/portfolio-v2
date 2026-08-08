@@ -23,3 +23,14 @@ Open `http://localhost:3000`.
 Portfolio copy, skills, projects, links, and social profiles live in `src/data/portfolio.ts`. Static images and the downloadable résumé live under `public/`.
 
 The site intentionally has no backend, CMS, API token, or contact-form service. Contact actions use the configured email address.
+
+## Railway deployment
+
+The repository includes a production multi-stage `Dockerfile`, standalone Next.js output, a `/api/health` endpoint, and `railway.json` deployment settings.
+
+1. In Railway, create a project from the `JuneRhomel/portfolio-v2` GitHub repository.
+2. Deploy the `main` branch. Railway will automatically use the root `Dockerfile`.
+3. Under **Networking**, generate a public domain.
+4. Add `NEXT_PUBLIC_SITE_URL` with the generated HTTPS URL, without a trailing slash, then redeploy. This updates canonical metadata, structured data, `robots.txt`, and `sitemap.xml`.
+
+No database or other environment variables are required.

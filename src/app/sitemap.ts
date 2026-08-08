@@ -1,8 +1,9 @@
 import type { MetadataRoute } from "next";
+import { siteUrl } from "@/lib/site-url";
 export default function sitemap(): MetadataRoute.Sitemap {
   return [
     {
-      url: "https://june-rhomel-portfolio-a0305.web.app",
+      url: siteUrl,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
