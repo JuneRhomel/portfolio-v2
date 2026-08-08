@@ -45,7 +45,7 @@ h1 em,h2 em { color:var(--teal); font-family:Georgia,serif; font-weight:400 }
 .portrait-wrap { position:relative; min-height:620px; align-self:end }
 .portrait-frame { position:absolute; inset:55px 0 0; overflow:hidden; background:linear-gradient(160deg,#19342d,#101513 70%); border:1px solid rgba(53,229,189,.16); clip-path:polygon(15% 0,100% 8%,92% 100%,0 94%) }
 .portrait-frame::after { content:""; position:absolute; inset:0; background:linear-gradient(to top,rgba(10,13,12,.5),transparent 50%) }
-.portrait-frame img { object-fit:cover; object-position:center 50%; filter:saturate(.82) contrast(1.06) }
+.portrait-frame img { --portrait-x:0px; --portrait-y:0px; object-fit:cover; object-position:center 50%; filter:saturate(.82) contrast(1.06); transform:translate3d(var(--portrait-x),var(--portrait-y),0) scale(1.045); transition:transform .28s cubic-bezier(.2,.8,.2,1); will-change:transform }
 .portrait-orbit { position:absolute; z-index:2; inset:16px -24px auto; display:flex; justify-content:space-between; color:var(--dim); font-size:.68rem; letter-spacing:.2em; text-transform:uppercase }
 .availability { position:absolute; z-index:3; right:-8px; bottom:22px; background:rgba(16,21,19,.9); border:1px solid var(--line); padding:10px 15px; font-size:.74rem; letter-spacing:.08em; text-transform:uppercase }
 .availability span { display:inline-block; width:7px; height:7px; margin-right:8px; border-radius:50%; background:var(--teal); box-shadow:0 0 0 5px rgba(53,229,189,.1) }

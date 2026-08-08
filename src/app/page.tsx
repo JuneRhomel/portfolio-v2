@@ -2,6 +2,7 @@ import Image from "next/image";
 import { ArrowUpRight, GithubIcon, MailIcon } from "@/components/icons";
 import { CopyEmail } from "@/components/copy-email";
 import { SiteHeader } from "@/components/site-header";
+import { InteractivePortrait } from "@/components/interactive-portrait";
 import { portfolio } from "@/data/portfolio";
 import { siteUrl } from "@/lib/site-url";
 
@@ -53,15 +54,7 @@ export default function Home() {
               <span>Developer</span>
               <span>Designer</span>
             </div>
-            <div className="portrait-frame">
-              <Image
-                src="/images/june-rhomel.jpg"
-                alt="June Rhomel Mandigma"
-                fill
-                priority
-                sizes="(max-width: 800px) 80vw, 42vw"
-              />
-            </div>
+            <InteractivePortrait />
             <p className="availability">
               <span /> Available for opportunities
             </p>
