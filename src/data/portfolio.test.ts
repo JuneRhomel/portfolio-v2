@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { portfolio } from "./portfolio";
+import { getProjectBySlug, portfolio } from "./portfolio";
 
 describe("portfolio content", () => {
   it("contains complete featured projects", () => {
@@ -13,6 +13,18 @@ describe("portfolio content", () => {
     }
     expect(portfolio.projects.map((project) => project.title)).toEqual(["AmbagMo!", "Recivo"]);
     expect(portfolio.projects.find((project) => project.title === "Recivo")?.technologies).toContain("Docker");
+    for (const project of portfolio.projects) {
+      expect(project.slug).toMatch(/^[a-z0-9-]+$/);
+      expect(project.architecture.length).toBeGreaterThanOrEqual(5);
+      expect(project.decisions.length).toBeGreaterThanOrEqual(4);
+      expect(project.features.length).toBeGreaterThanOrEqual(5);
+    }
+  });
+
+  it("looks projects up by their public route slug", () => {
+    expect(getProjectBySlug("ambagmo")?.title).toBe("AmbagMo!");
+    expect(getProjectBySlug("recivo")?.title).toBe("Recivo");
+    expect(getProjectBySlug("missing-project")).toBeUndefined();
   });
 
   it("uses only public contact and social links", () => {

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { ArrowUpRight, GithubIcon, MailIcon } from "@/components/icons";
 import { CopyEmail } from "@/components/copy-email";
 import { SiteHeader } from "@/components/site-header";
@@ -156,12 +157,10 @@ export default function Home() {
           <div className="projects">
             {portfolio.projects.map((project, index) => (
               <article className="project" key={project.title}>
-                <a
+                <Link
                   className={`project-image project-image--${project.imageLayout}`}
-                  href={project.liveUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`View ${project.title} live`}
+                  href={`/projects/${project.slug}`}
+                  aria-label={`Read the ${project.title} case study`}
                 >
                   <Image
                     src={project.image}
@@ -170,9 +169,9 @@ export default function Home() {
                     sizes="(max-width: 800px) 92vw, 58vw"
                   />
                   <span>
-                    View live <ArrowUpRight />
+                    Case study <ArrowUpRight />
                   </span>
-                </a>
+                </Link>
                 <div className="project-details">
                   <p className="project-index">
                     0{index + 1} · {project.accent}
@@ -185,6 +184,9 @@ export default function Home() {
                     ))}
                   </ul>
                   <div className="project-links">
+                    <Link href={`/projects/${project.slug}`}>
+                      Read case study <ArrowUpRight />
+                    </Link>
                     {project.repository && (
                       <a
                         href={project.repository}
