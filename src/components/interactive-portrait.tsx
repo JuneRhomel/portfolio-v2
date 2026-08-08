@@ -21,10 +21,10 @@ export function InteractivePortrait() {
       if (motionDisabled.matches) return;
       const horizontal = event.clientX / window.innerWidth - 0.5;
       const vertical = event.clientY / window.innerHeight - 0.5;
-      frameRef.current?.style.setProperty("--portrait-rotate-x", `${vertical * -8}deg`);
-      frameRef.current?.style.setProperty("--portrait-rotate-y", `${horizontal * 8}deg`);
-      imageRef.current?.style.setProperty("--portrait-x", `${horizontal * 12}px`);
-      imageRef.current?.style.setProperty("--portrait-y", `${vertical * 9}px`);
+      frameRef.current?.style.setProperty("--portrait-rotate-x", `${vertical * -16}deg`);
+      frameRef.current?.style.setProperty("--portrait-rotate-y", `${horizontal * 16}deg`);
+      imageRef.current?.style.setProperty("--portrait-x", `${horizontal * 22}px`);
+      imageRef.current?.style.setProperty("--portrait-y", `${vertical * 16}px`);
     }
 
     window.addEventListener("pointermove", handlePointerMove, { passive: true });
